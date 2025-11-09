@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>M. Kafagi Mark - Prototype</title>
+<style>
+:root{--bg:#ffffff; --muted:#f7f7f7; --text:#1f1f1f; --accent:#00A86B; --gold:#b8860b;}
+body{margin:0;font-family:Tahoma, Arial, sans-serif;background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased}
+.header{padding:14px 16px;border-bottom:1px solid #eee;display:flex;align-items:center;gap:12px}
+.brand{display:flex;align-items:center;gap:10px}
+.logo-box{width:44px;height:44px;border-radius:8px;background:#fff;border:1px solid #eee;display:flex;align-items:center;justify-content:center;box-shadow:0 1px 4px rgba(0,0,0,0.04)}
+.cart-icon{font-weight:bold;color:#333}
+.title{font-size:18px;font-weight:700}
+.subtitle{font-size:12px;color:#666}
+.container{padding:14px}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.card{background:var(--muted);border-radius:12px;overflow:hidden;box-shadow:0 4px 14px rgba(0,0,0,0.04)}
+.card img.placeholder{width:100%;height:260px;display:block;object-fit:cover;background:#ddd}
+.card .info{padding:12px}
+.price{font-weight:700;color:var(--text);margin-top:8px}
+.btn-small{display:inline-block;padding:8px 12px;border-radius:8px;background:var(--gold);color:#fff;font-weight:700;text-decoration:none}
+.footer-fixed{position:fixed;left:0;right:0;bottom:12px;display:flex;justify-content:center;pointer-events:none}
+.whatsapp-btn{pointer-events:auto;background:#25D366;color:white;padding:12px 20px;border-radius:28px;box-shadow:0 6px 18px rgba(37,211,102,0.2);display:flex;align-items:center;gap:10px;text-decoration:none;font-weight:700}
+.detail{padding:18px}
+.detail img{width:100%;height:360px;object-fit:cover;border-radius:12px;background:#eee}
+.detail .title{font-size:20px;font-weight:800;margin-top:12px}
+.detail .desc{color:#444;margin-top:8px;line-height:1.4}
+.detail .price{font-size:18px}
+.back-link{display:inline-block;margin-bottom:10px;color:#666;text-decoration:none}
+.small-note{font-size:13px;color:#666;margin-top:8px}
+@media (max-width:520px){.card img.placeholder{height:180px}.detail img{height:280px}}
+</style>
+</head>
+<body>
+<header class="header">
+  <div class="brand">
+    <div class="logo-box"><span class="cart-icon">🛒</span></div>
+    <div>
+      <div class="title">M. Kafagi Mark</div>
+      <div class="subtitle">السماوة / المثنى</div>
+    </div>
+  </div>
+</header>
+<main class="container" id="app">
+  <section id="home">
+    <div class="grid" id="products-grid">
+
+      <article class="card" data-id="1">
+        <img class="placeholder" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'><rect width='100%' height='100%' fill='%23111111'/><text x='50%' y='50%' fill='%23ffffff' font-size='36' font-family='Tahoma' text-anchor='middle' dominant-baseline='middle'>ساعة رجالية كلاسيك - أسود ذهبي</text></svg>" alt="ساعة رجالية كلاسيك - أسود ذهبي" onclick="openDetail(1)">
+        <div class="info">
+          <div class="title-small">ساعة رجالية كلاسيك - أسود ذهبي</div>
+          <div class="price">45,000 د.ع</div>
+          <a href="javascript:openDetail(1)" class="btn-small">عرض التفاصيل</a>
+        </div>
+      </article>
+    
+      <article class="card" data-id="2">
+        <img class="placeholder" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'><rect width='100%' height='100%' fill='%232b2b2b'/><text x='50%' y='50%' fill='%23ffffff' font-size='36' font-family='Tahoma' text-anchor='middle' dominant-baseline='middle'>ساعة نسائية راقية - ذهبي</text></svg>" alt="ساعة نسائية راقية - ذهبي" onclick="openDetail(2)">
+        <div class="info">
+          <div class="title-small">ساعة نسائية راقية - ذهبي</div>
+          <div class="price">38,000 د.ع</div>
+          <a href="javascript:openDetail(2)" class="btn-small">عرض التفاصيل</a>
+        </div>
+      </article>
+    
+      <article class="card" data-id="3">
+        <img class="placeholder" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'><rect width='100%' height='100%' fill='%23000000'/><text x='50%' y='50%' fill='%23ffffff' font-size='36' font-family='Tahoma' text-anchor='middle' dominant-baseline='middle'>سوار جلد رجالي</text></svg>" alt="سوار جلد رجالي" onclick="openDetail(3)">
+        <div class="info">
+          <div class="title-small">سوار جلد رجالي</div>
+          <div class="price">9,500 د.ع</div>
+          <a href="javascript:openDetail(3)" class="btn-small">عرض التفاصيل</a>
+        </div>
+      </article>
+    
+      <article class="card" data-id="4">
+        <img class="placeholder" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'><rect width='100%' height='100%' fill='%23333333'/><text x='50%' y='50%' fill='%23ffffff' font-size='36' font-family='Tahoma' text-anchor='middle' dominant-baseline='middle'>قلادة نسائية بسيطة</text></svg>" alt="قلادة نسائية بسيطة" onclick="openDetail(4)">
+        <div class="info">
+          <div class="title-small">قلادة نسائية بسيطة</div>
+          <div class="price">12,000 د.ع</div>
+          <a href="javascript:openDetail(4)" class="btn-small">عرض التفاصيل</a>
+        </div>
+      </article>
+    
+      <article class="card" data-id="5">
+        <img class="placeholder" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'><rect width='100%' height='100%' fill='%23444444'/><text x='50%' y='50%' fill='%23ffffff' font-size='36' font-family='Tahoma' text-anchor='middle' dominant-baseline='middle'>منظم مكتب راقي</text></svg>" alt="منظم مكتب راقي" onclick="openDetail(5)">
+        <div class="info">
+          <div class="title-small">منظم مكتب راقي</div>
+          <div class="price">7,800 د.ع</div>
+          <a href="javascript:openDetail(5)" class="btn-small">عرض التفاصيل</a>
+        </div>
+      </article>
+    
+      <article class="card" data-id="6">
+        <img class="placeholder" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1200' height='800'><rect width='100%' height='100%' fill='%23222222'/><text x='50%' y='50%' fill='%23ffffff' font-size='36' font-family='Tahoma' text-anchor='middle' dominant-baseline='middle'>حامل مجوهرات ذهبي</text></svg>" alt="حامل مجوهرات ذهبي" onclick="openDetail(6)">
+        <div class="info">
+          <div class="title-small">حامل مجوهرات ذهبي</div>
+          <div class="price">11,500 د.ع</div>
+          <a href="javascript:openDetail(6)" class="btn-small">عرض التفاصيل</a>
+        </div>
+      </article>
+    
+    </div>
+  </section>
+  <section id="detail" style="display:none">
+    <a class="back-link" href="javascript:showHome()">← رجوع</a>
+    <div class="detail-card">
+      <img id="detail-img" src="" alt="">
+      <div class="detail">
+        <div class="title" id="detail-title">اسم المنتج</div>
+        <div class="desc" id="detail-desc">وصف المنتج</div>
+        <div class="price" id="detail-price"></div>
+        <div class="small-note">كود الخصم: <strong>M. Kafagi Mark</strong></div>
+      </div>
+      <div style="height:90px"></div>
+    </div>
+  </section>
+</main>
+<footer class="footer-fixed">
+  <a id="wa-button" class="whatsapp-btn" href="#" target="_blank" style="display:none" onclick="event.stopPropagation()">
+    <span>🟢</span> <span>طلب عبر واتساب</span>
+  </a>
+</footer>
+<script>
+const products = [{"id": 1, "title": "ساعة رجالية كلاسيك - أسود ذهبي", "price": "45,000 د.ع", "desc": "تصميم ستانلس ستيل مع سوار جلدي.", "img_color": "%23111111"}, {"id": 2, "title": "ساعة نسائية راقية - ذهبي", "price": "38,000 د.ع", "desc": "لمسة ذهبية ناعمة وتصميم أنيق.", "img_color": "%232b2b2b"}, {"id": 3, "title": "سوار جلد رجالي", "price": "9,500 د.ع", "desc": "جلد طبيعي مع تفاصيل معدنية.", "img_color": "%23000000"}, {"id": 4, "title": "قلادة نسائية بسيطة", "price": "12,000 د.ع", "desc": "تصميم ناعم مناسب لجميع المناسبات.", "img_color": "%23333333"}, {"id": 5, "title": "منظم مكتب راقي", "price": "7,800 د.ع", "desc": "منظم للمكتب بتصميم حديث.", "img_color": "%23444444"}, {"id": 6, "title": "حامل مجوهرات ذهبي", "price": "11,500 د.ع", "desc": "حامل عملي مع لمسات ذهبية.", "img_color": "%23222222"}];
+function showHome(){ document.getElementById('detail').style.display='none'; document.getElementById('home').style.display='block'; document.getElementById('wa-button').style.display='none'; window.scrollTo(0,0); }
+function openDetail(id){
+  const p = products.find(x=>x.id===id);
+  if(!p) return;
+  document.getElementById('detail-img').src = p.img = p.img || document.querySelector('.card[data-id="'+id+'"] img').src;
+  document.getElementById('detail-title').innerText = p.title;
+  document.getElementById('detail-desc').innerText = p.desc;
+  document.getElementById('detail-price').innerText = p.price;
+  document.getElementById('home').style.display='none';
+  document.getElementById('detail').style.display='block';
+  const waText = encodeURIComponent('مرحباً، أريد طلب هذا المنتج عبر M. Kafagi Mark:%0Aاسم المنتج: ' + p.title + '%0Aالسعر: ' + p.price + '%0Aالمدينة: السماوة / المثنى%0Aالكمية: 1%0Aالرمز: M. Kafagi Mark');
+  document.getElementById('wa-button').href = "https://wa.me/9647829447935?text=" + waText;
+  document.getElementById('wa-button').style.display='flex';
+  window.scrollTo(0,0);
+}
+showHome();
+</script>
+</body>
+</html>
